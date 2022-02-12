@@ -3981,7 +3981,7 @@ void MissionMoonBattle::start ()
     fighter [i]->tl->z = 100 + i * 5;
     fighter [i]->target = fighter [7 + i];
   }
-  for (i = 7; i <= 25; i ++)
+  for (i = 7; i <= 20; i ++)
   {
     fighter [i]->party = 0;
     fighter [i]->target = fighter [myrandom (7)];
@@ -4017,7 +4017,7 @@ int MissionMoonBattle::processtimer (Uint32 dt)
   {
     return 2;
   }
-  for (i = 0; i <= 24; i ++)
+  for (i = 0; i <= 19; i ++)
   {
     if (fighter [i]->active)
       if (fighter [i]->party == 0)

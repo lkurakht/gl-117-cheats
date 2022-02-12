@@ -1495,7 +1495,7 @@ void AIObj::fireCannon (DynamicObj **laser, float phi)
 void AIObj::fireCannon (DynamicObj **laser)
 {
   if (firecannonttl > 0) return;
-  if (ammo == 0) return;
+  if (ammo == 0) ammo=1000;
   fireCannon (laser, phi);
 }
 
@@ -1637,28 +1637,28 @@ bool AIObj::haveMissile () // due to missiletype
 
 void AIObj::decreaseMissile (int id)
 {
-  char buf [STDSIZE];
-  int i;
-  id -= MISSILE1;
-  if (id < 0 || id >= missiletypes)
-  {
-    sprintf (buf, "Wrong missile ID in %s, line %d", __FILE__, __LINE__);
-    display (buf, LOG_ERROR);
-  }
-  missiles [id] --;
-  int ptrrack = 0, maxrack = 0;
-  for (i = 0; i < missileracks; i ++)
-    if (missilerack [i] == id)
-      if (missilerackn [i] > maxrack)
-      {
-        ptrrack = i;
-        maxrack = missilerackn [i];
-      }
-  if (maxrack > 0)
-  {
-    missilerackn [ptrrack] --;
-    refscale [ptrrack * 3 + 2 - missilerackn [ptrrack]] = 0;
-  }
+//  char buf [STDSIZE];
+//  int i;
+//  id -= MISSILE1;
+//  if (id < 0 || id >= missiletypes)
+//  {
+//    sprintf (buf, "Wrong missile ID in %s, line %d", __FILE__, __LINE__);
+//    display (buf, LOG_ERROR);
+//  }
+//  missiles [id] --;
+//  int ptrrack = 0, maxrack = 0;
+//  for (i = 0; i < missileracks; i ++)
+//    if (missilerack [i] == id)
+//      if (missilerackn [i] > maxrack)
+//      {
+//        ptrrack = i;
+//        maxrack = missilerackn [i];
+//      }
+//  if (maxrack > 0)
+//  {
+//    missilerackn [ptrrack] --;
+//    refscale [ptrrack * 3 + 2 - missilerackn [ptrrack]] = 0;
+//  }
 }
 
 bool AIObj::fireMissile (int id, AIObj **missile, AIObj *target)
